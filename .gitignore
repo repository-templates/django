@@ -105,3 +105,6 @@ ENV/
 
 # Media
 media/
+
+# Misc
+.DS_Store
