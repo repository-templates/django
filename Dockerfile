@@ -3,14 +3,12 @@ FROM --platform=linux/amd64 python:3.11
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE=config.docker_settings
 
-RUN mkdir /code
-WORKDIR /code
-COPY requirements.txt /code/
-COPY requirements.prod.txt /code
+WORKDIR /app
+COPY requirements*.txt ./
 RUN pip install -r requirements.txt
 RUN pip install -r requirements.prod.txt
 
-COPY . /code/
+COPY . .
 
 EXPOSE 80
 
